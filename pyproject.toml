@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "vulnerable-test-app"
+version = "0.1.0"
+description = "A sample application with known vulnerabilities for testing"
+authors = ["Test User <test@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+# Vulnerable versions intentionally specified
+flask = "2.0.0"  # CVE-2023-30861 (cookie parsing vulnerability)
+requests = "2.25.0"  # CVE-2023-32681 (proxy-authorization header leak)
+pyyaml = "5.3.1"  # CVE-2020-14343 (arbitrary code execution)
+jinja2 = "2.11.0"  # CVE-2024-22195 (XSS vulnerability)
+cryptography = "3.3.0"  # Multiple CVEs including CVE-2023-23931
+urllib3 = "1.26.4"  # CVE-2023-43804 (cookie leak via redirect)
+pillow = "8.0.0"  # CVE-2022-22817, CVE-2022-45198 (buffer overflow)
+django = "3.1.0"  # CVE-2023-43665, CVE-2024-27351 (SQL injection)
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
